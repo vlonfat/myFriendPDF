@@ -35,6 +35,16 @@ xattr -cr myFriendPDF.app
 
 Then double-click `myFriendPDF.app` to open it normally.
 
+### Windows — first launch
+
+Chrome may block the download with the message *"myFriendPDF.exe is not frequently downloaded"*:
+
+1. Click the **three dots** next to the message in the Chrome download bar
+2. Select **"Keep"**
+3. In the dropdown next to **"Delete"**, select **"Keep anyway"**
+
+Then double-click `myFriendPDF.exe` to launch the app. If Windows SmartScreen appears, click **"More info"** → **"Run anyway"**.
+
 ## Run from source
 
 ```bash
