@@ -25,15 +25,13 @@ Go to the [Releases](../../releases) page and download the executable for your p
 
 ### macOS — first launch
 
-Open a Terminal in the folder where the file is located and run:
+macOS may block the app with a Gatekeeper warning. Open a Terminal in the folder where `myFriendPDF.app` is located and run:
 
 ```bash
-chmod +x myFriendPDF-macos
-xattr -cr myFriendPDF-macos
-./myFriendPDF-macos
+xattr -cr myFriendPDF.app
 ```
 
-Or right-click the file → **Open** → **Open Anyway**.
+Then double-click `myFriendPDF.app` to open it normally.
 
 ## Run from source
 
