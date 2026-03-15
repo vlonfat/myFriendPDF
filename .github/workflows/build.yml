@@ -104,12 +104,16 @@ jobs:
 
       # ── Upload artifacts ─────────────────────────────────────
 
+      - name: Rename binary (macOS / Linux)
+        if: matrix.os != 'windows-latest'
+        run: mv dist/myFriendPDF dist/myFriendPDF-${{ matrix.name }}
+
       - name: Upload artifact (macOS / Linux)
         if: matrix.os != 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
           name: myFriendPDF-${{ matrix.name }}
-          path: dist/myFriendPDF
+          path: dist/myFriendPDF-${{ matrix.name }}
 
       - name: Upload artifact (Windows)
         if: matrix.os == 'windows-latest'
@@ -130,6 +134,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            myFriendPDF-macos/myFriendPDF
+            myFriendPDF-macos/myFriendPDF-macos
             myFriendPDF-windows/myFriendPDF.exe
-            myFriendPDF-linux/myFriendPDF
+            myFriendPDF-linux/myFriendPDF-linux
