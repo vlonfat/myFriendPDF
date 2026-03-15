@@ -74,7 +74,6 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: >
           pyinstaller
-          --onefile
           --windowed
           --name myFriendPDF
           --icon assets/icon.icns
@@ -86,6 +85,10 @@ jobs:
           --hidden-import pages.operations.pdf_to_word
           --hidden-import pages.operations.word_to_pdf
           main.py
+
+      - name: Zip .app (macOS)
+        if: matrix.os == 'macos-latest'
+        run: cd dist && zip -r myFriendPDF-macos.zip myFriendPDF.app
 
       - name: Build (Windows)
         if: matrix.os == 'windows-latest'
@@ -122,16 +125,23 @@ jobs:
 
       # ── Upload artifacts ─────────────────────────────────────
 
-      - name: Rename binary (macOS / Linux)
-        if: matrix.os != 'windows-latest'
-        run: mv dist/myFriendPDF dist/myFriendPDF-${{ matrix.name }}
-
-      - name: Upload artifact (macOS / Linux)
-        if: matrix.os != 'windows-latest'
+      - name: Upload artifact (macOS)
+        if: matrix.os == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: myFriendPDF-${{ matrix.name }}
-          path: dist/myFriendPDF-${{ matrix.name }}
+          name: myFriendPDF-macos
+          path: dist/myFriendPDF-macos.zip
+
+      - name: Rename binary (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: mv dist/myFriendPDF dist/myFriendPDF-linux
+
+      - name: Upload artifact (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: myFriendPDF-linux
+          path: dist/myFriendPDF-linux
 
       - name: Upload artifact (Windows)
         if: matrix.os == 'windows-latest'
@@ -152,6 +162,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            myFriendPDF-macos/myFriendPDF-macos
+            myFriendPDF-macos/myFriendPDF-macos.zip
             myFriendPDF-windows/myFriendPDF.exe
             myFriendPDF-linux/myFriendPDF-linux

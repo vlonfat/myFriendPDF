@@ -25,10 +25,12 @@ Go to the [Releases](../../releases) page and download the executable for your p
 
 ### macOS — first launch
 
-macOS may block the app with a security warning. Open a Terminal in the folder where the file is located and run:
+Open a Terminal in the folder where the file is located and run:
 
 ```bash
+chmod +x myFriendPDF-macos
 xattr -cr myFriendPDF-macos
+./myFriendPDF-macos
 ```
 
 Or right-click the file → **Open** → **Open Anyway**.
