@@ -79,6 +79,12 @@ jobs:
           --name myFriendPDF
           --icon assets/icon.icns
           --add-data "assets:assets"
+          --hidden-import pages.operations.merge_pdf
+          --hidden-import pages.operations.split_pdf
+          --hidden-import pages.operations.compress_pdf
+          --hidden-import pages.operations.rotate_pdf
+          --hidden-import pages.operations.pdf_to_word
+          --hidden-import pages.operations.word_to_pdf
           main.py
 
       - name: Build (Windows)
@@ -90,6 +96,12 @@ jobs:
           --name myFriendPDF
           --icon assets/icon.ico
           --add-data "assets;assets"
+          --hidden-import pages.operations.merge_pdf
+          --hidden-import pages.operations.split_pdf
+          --hidden-import pages.operations.compress_pdf
+          --hidden-import pages.operations.rotate_pdf
+          --hidden-import pages.operations.pdf_to_word
+          --hidden-import pages.operations.word_to_pdf
           main.py
 
       - name: Build (Linux)
@@ -100,6 +112,12 @@ jobs:
           --windowed
           --name myFriendPDF
           --add-data "assets:assets"
+          --hidden-import pages.operations.merge_pdf
+          --hidden-import pages.operations.split_pdf
+          --hidden-import pages.operations.compress_pdf
+          --hidden-import pages.operations.rotate_pdf
+          --hidden-import pages.operations.pdf_to_word
+          --hidden-import pages.operations.word_to_pdf
           main.py
 
       # ── Upload artifacts ─────────────────────────────────────

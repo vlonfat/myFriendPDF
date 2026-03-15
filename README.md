@@ -23,6 +23,16 @@ Go to the [Releases](../../releases) page and download the executable for your p
 
 > **Word to PDF** requires Microsoft Word (macOS/Windows) or LibreOffice (Linux) to be installed.
 
+### macOS — first launch
+
+macOS may block the app with a security warning. Open a Terminal in the folder where the file is located and run:
+
+```bash
+xattr -cr myFriendPDF-macos
+```
+
+Or right-click the file → **Open** → **Open Anyway**.
+
 ## Run from source
 
 ```bash
