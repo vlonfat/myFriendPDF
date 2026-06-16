@@ -26,7 +26,7 @@ class WordToPDF(BaseOperation):
     # ── FILE ACTIONS ──────────────────────────────────────────
 
     def import_files(self):
-        path = FM.import_files(multiple=False, fileType=FT.WORD)
+        path = FM.import_files(multiple=False, fileType=FT.WORD_ALL)
         if not path:
             return
         self.docx_path = path

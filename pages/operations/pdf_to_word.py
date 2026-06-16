@@ -19,7 +19,7 @@ class PDFtoWord(BaseOperation):
 
         ttk.Separator(params_frame, orient="horizontal").pack(fill="x", padx=20, pady=10)
 
-        ttk.Label(params_frame, text="Converts PDF text and layout to an editable .docx file.",
+        ttk.Label(params_frame, text="Converts PDF text and layout to an editable .docx / .odt file.",
                   foreground="#888888", justify="center").pack(pady=5)
 
     # ── FILE ACTIONS ──────────────────────────────────────────
@@ -37,7 +37,7 @@ class PDFtoWord(BaseOperation):
             messagebox.showwarning("Warning", "Please import a PDF file first.")
             return
         default = os.path.splitext(os.path.basename(self.pdf_path))[0]
-        output_path = FM.export_file(default_name=default, fileType=FT.WORD)
+        output_path = FM.export_file(default_name=default, fileType=FT.WORD_ALL)
         if not output_path:
             return
         self._convert(output_path)

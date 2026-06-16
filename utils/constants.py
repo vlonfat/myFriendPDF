@@ -26,6 +26,7 @@ class Constant:
 class FileTypes:
     """Immutable file type constants used as filters in file dialogs."""
     PDF  = (("PDF files",  "*.pdf"),)
-    WORD = (("Word files", "*.docx"),)
+    WORD     = (("Word files", "*.docx"),)
+    WORD_ALL = (("Word/ODF files", "*.docx"), ("OpenDocument Text", "*.odt"))
     ZIP  = (("ZIP archive", "*.zip"),)
     TGZ  = (("TGZ archive", "*.tar.gz"),)
